@@ -1,4 +1,11 @@
 const tipsLinks = document.querySelectorAll(".has-tooltip");
+
+document.body.insertAdjacentHTML(
+  "afterbegin",
+  `<div class="tooltip" style="left: 0; top: 0">
+    </div>`
+);
+
 const tooltip = document.querySelector(".tooltip");
 
 tipsLinks.forEach((link) => {
@@ -9,7 +16,6 @@ tipsLinks.forEach((link) => {
       link.dataset.clicked = false;
       return;
     }
-    console.log(e);
     tooltip.textContent = link.title;
     tooltip.classList.add("tooltip_active");
     tooltip.style.left = `${e.clientX}px`;
